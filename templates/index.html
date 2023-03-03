@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST">
+        <div class="row">
+            <div class="four columns">
+                <label for="room_count">
+                    Количество комнат
+                </label>
+                <input class="u-full-width" type="number" id="room_count" name="room_count" min="1" max="6" required>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="four columns">
+                <label for="all_area">
+                    Общая площадь квартиры
+                </label>
+                <input class="u-full-width" type="number" id="all_area" name="all_area" min="15" max="120" step="0.1" required>
+            </div>
+            <div class="four columns">
+                <label for="living_area">
+                     Площадь жилых комнат
+                </label>
+                <input class="u-full-width" type="number" id="living_area" name="living_area" min="10" max="110" step="0.1" required>
+            </div>
+            <div class="four columns">
+                <label for="kitchen_area">
+                    Площадь кухни
+                </label>
+                <input class="u-full-width" type="number" id="kitchen_area" name="kitchen_area" min="2" max="80" step="0.1" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="six columns">
+                <label for="floor">
+                    Этаж квартиры
+                </label>
+                <input class="u-full-width" type="number" id="floor" name="floor" min="1" max="25" required>
+            </div>
+            <div class="six columns">
+                <label for="floors_count">
+                    Количество этажей в доме
+                </label>
+                <input class="u-full-width" type="number" id="floors_count" name="floors_count" min="1" max="25" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="four columns">
+                <label for="contact_type">
+                    Тип контактного лица
+                </label>
+                <select class="u-full-width" id="contact_type" name="contact_type">
+                    <option>Собственник</option>
+                    <option>Риелтор</option>
+                    <option>Застройщик</option>
+                    <option>Эпсилон-недвижимость</option>
+                    <option>НДС недвижимость</option>
+                    <option>Мой город</option>
+                    <option>ProДом46</option>
+                    <option>КУРСКАЯ НЕДВИЖИМОСТЬ</option> 
+                    <option>Перспектива 24 Курск</option> 
+                    <option>ИП Бобынцева Л.Н.</option> 
+                    <option>Другое агентство</option>         
+                </select>
+            </div>
+            <div class="four columns">
+                <label for="fondation_year">
+                     Год основания дома
+                </label>
+                <input class="u-full-width" type="number" id="fondation_year" name="fondation_year" min="1900" max="2023" required>
+            </div>
+            <div class="four columns">
+                <label for="housing_type">
+                    Тип недвижимости
+                </label>
+                <select class="u-full-width" id="housing_type" name="housing_type">
+                    <option>Вторичка</option>
+                    <option>Новостройка</option>  
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="six columns">
+                <label for="restroom">
+                    Количество санузлов
+                </label>
+                <select class="u-full-width" id="restroom" name="restroom">
+                    <option>1 совмещенный</option>
+                    <option>1 раздельный</option>
+                    <option>2 раздельных</option>
+                    <option>1 совмещенный, 1 раздельный</option>
+                </select>
+            </div>
+            <div class="six columns">
+                <label for="balcony_loggia">
+                     Количество балконов и/или лоджий
+                </label>
+                <select class="u-full-width" id="balcony_loggia" name="balcony_loggia">
+                    <option>1 балкон</option>
+                    <option>2 лоджии</option>
+                    <option>1 лоджия</option>
+                    <option>1 балкон, 1 лоджия</option>
+                    <option>2 балкона</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="six columns">
+                <label for="renovation_type">
+                    Наличие и тип ремонта
+                </label>
+                <select class="u-full-width" id="renovation_type" name="renovation_type">
+                    <option>Косметический</option>
+                    <option>Евроремонт</option>
+                    <option>Без ремонта</option>
+                    <option>Дизайнерский</option>
+                </select>
+            </div>
+            <div class="six columns">
+                <label for="window_view">
+                    Вид из окна
+                </label>
+                <select class="u-full-width" id="window_view" name="window_view">
+                    <option>На улицу и двор</option>
+                    <option>Во двор</option>
+                    <option>На улицу</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <input class="button" type="submit" value="Submit">
+            {% include 'alert.html' %}
+        </div>
+    </form>
+<h3>Результат вычисления</h3>
+    <p>Предсказываемая стоимость данной квартиры: {{ result }}</p>
+        
+{% endblock %}
